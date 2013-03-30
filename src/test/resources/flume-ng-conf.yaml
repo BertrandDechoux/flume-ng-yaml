@@ -1,0 +1,39 @@
+#
+# Flume Configuration
+# This file contains configuration for one Agent identified as host1.
+#
+
+host1:
+    sources:
+        avroSource:
+            type: org.apache.flume.source.AvroSource
+            runner:
+                type: avro
+                port: 11001
+            channels: jdbcChannel
+            selector.type: replicating
+
+        thriftSource:
+            type: org.apache.flume.source.ThriftSource
+            runner:
+                type: thrift
+                port: 12001
+            channels: jdbcChannel
+
+    channels:
+        jdbcChannel:
+            type: jdbc
+            jdbc:
+                driver: com.mysql.jdbc.Driver
+                connect.url: http://localhost/flumedb
+                username: flume
+                password: flume
+
+    sinks:
+        hdfsSink:
+            type: hdfs
+            hdfs.path: hdfs://localhost/
+            batchsize: 1000
+            runner:
+                type: polling
+                polling.interval: 60

@@ -1,0 +1,27 @@
+#flume-ng YAML configuration generated from properties file : 
+#src/test/resources/flume-ng-conf.properties
+host1:
+  channels:
+    jdbcChannel:
+      jdbc:
+        connect: {url: 'http://localhost/flumedb'}
+        driver: com.mysql.jdbc.Driver
+        password: flume
+        username: flume
+      type: jdbc
+  sinks:
+    hdfsSink:
+      batchsize: '1000'
+      hdfs: {path: 'hdfs://localhost/'}
+      runner:
+        polling: {interval: '60'}
+        type: polling
+      type: hdfs
+  sources:
+    avroSource:
+      runner: {port: '11001', type: avro}
+      selector: {type: replicating}
+      type: org.apache.flume.source.AvroSource
+    thriftSource:
+      runner: {port: '12001', type: thrift}
+      type: org.apache.flume.source.ThriftSource
