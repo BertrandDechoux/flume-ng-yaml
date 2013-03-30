@@ -14,7 +14,7 @@ More information?
 
 You could use
 
-```yaml
+```
 host1:
     sources:
         avroSource:
@@ -53,7 +53,7 @@ host1:
 
 instead of 
 
-```properties
+```
 host1.sources = avroSource thriftSource
 host1.channels = jdbcChannel
 host1.sinks = hdfsSink
