@@ -7,7 +7,7 @@
 	<packaging>jar</packaging>
 
 	<name>flume-ng-yaml</name>
-	<url>http://flume.apache.org/</url>
+	<url>https://github.com/BertrandDechoux/flume-ng-yaml</url>
 
 	<scm>
 		<connection>scm:git@github.com:BertrandDechoux/flume-ng-yaml.git</connection>
